@@ -6,16 +6,39 @@ A simple Raycaster built in C using the Raylib library
 <video src="https://github.com/user-attachments/assets/2713c30f-63de-4adb-a057-8a5bf3926209" controls="controls" style="max-width: 600px;">
 </video>
 
-## Getting Started
+## Info
+* Boundary walls are random and their position changes each time the program is run
+* WASD movement 
+* Player positon can also be changed by left clicking the player and dragging the mouse
+* Player movement forward or backward using the W and S keys
+* Player has a 180 degree FOV, player can be rotated using A and D keys.
 
-### Dependencies
 
-* Raylib Version 6.0.0
-* Make sure the Raylib binaries and header files are in the path
-* OS: Linux. Compilation has not been tested on Windows
+## Installation
 
-### Executing program
+### Preqruisites
+* C compiler (GCC)
+* Raylib library
 
-* cd into the main directory and run the program using ```make run```
-* ```make run``` auto deletes the output file. Compile using ```make comp``` to just compile the file.
+### Installing Raylib
+If you don't have Raylib installed, follow the instructions on the [Raylib installation page](https://github.com/raysan5/raylib#installation).
+
+### Building the Game
+1. Clone the repository:
+   ```sh
+    git clone https://github.com/logorhythmic/2D-Raycaster.git
+   ```
+
+2. Compile the game:
+   ```gcc -O3 src/*.c -o output -lraylib -lm -lX11 
+   ```
+
+3. Run the game:
+   ```sh
+   ./output
+   ```
+> **Note:** If you have make installed you can skip the above steps and just run ```make run```.
+
+
+
 
