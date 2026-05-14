@@ -16,12 +16,12 @@ A simple Raycaster built in C using the Raylib library
 
 ## Installation
 
-### Preqruisites
+### Prerequisites
 * C compiler (GCC)
 * Raylib library
 
 ### Installing Raylib
-If you don't have Raylib installed, follow the instructions on the [Raylib installation page](https://github.com/raysan5/raylib#installation).
+* If you don't have Raylib installed, follow the instructions on the [Raylib installation page](https://github.com/raysan5/raylib#installation).
 
 ### Building the Game
 1. Clone the repository:
@@ -30,7 +30,8 @@ If you don't have Raylib installed, follow the instructions on the [Raylib insta
    ```
 
 2. Compile the game:
-   ```gcc -O3 src/*.c -o output -lraylib -lm -lX11 
+   ```sh 
+    gcc -O3 src/*.c -o output -lraylib -lm -lX11 
    ```
 
 3. Run the game:
