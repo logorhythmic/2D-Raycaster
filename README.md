@@ -2,6 +2,9 @@
 
 A simple Raycaster built in C using the Raylib library
 
+## Demo Video
+<video src="https://github.com/user-attachments/assets/2713c30f-63de-4adb-a057-8a5bf3926209" controls="controls" style="max-width: 600px;">
+</video>
 
 ## Getting Started
 
