@@ -24,9 +24,9 @@ A simple Raycaster built in C using the Raylib library
 * If you don't have Raylib installed, follow the instructions on the [Raylib installation page](https://github.com/raysan5/raylib#installation).
 
 ### Building the Game
-1. Clone the repository:
+1. Clone the repository and cd into it:
    ```sh
-    git clone https://github.com/logorhythmic/2D-Raycaster.git
+    git clone https://github.com/logorhythmic/2D-Raycaster.git && cd 2D-Raycaster
    ```
 
 2. Compile the game:
