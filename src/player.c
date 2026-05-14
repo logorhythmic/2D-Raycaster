@@ -6,7 +6,7 @@
 
 #define _USE_MATH_DEFINES
 #define MOVE_LEN 10
-#define PLAYER_RAD 9.0f
+#define PLAYER_RAD 20.0f
 #define ANGLE_CHANGE 0.1f
 #define LINE_LEN 15.0f
 
@@ -98,6 +98,7 @@ void move_and_draw_player(void) {
   move_player_keys();
   move_player_mouse();
   draw_player();
-  DrawLineEx(player_pos, v_add(player_pos, v_scale(player_dir, LINE_LEN)), 5.0f,
-             BLACK);
+  // DrawLineEx(player_pos, v_add(player_pos, v_scale(player_dir,
+  // LINE_LEN)), 5.0f,
+  //            BLACK);
 }

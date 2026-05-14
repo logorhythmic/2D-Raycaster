@@ -6,16 +6,16 @@
 #include <raylib.h>
 #include <stdio.h>
 
-#define FOV 180
+#define FOV 360
 #define D_SPACING 3
 #define D_R 0.0174533
-#define LINE_THICK 0.5f
-#define NUM_OF_BOUNDARIES 5
+#define LINE_THICK 1.0f
+#define NUM_OF_BOUNDARIES 9
 #define BOUND_THICK 2.0f
 
 #define NUM_OF_RAYS (int)(FOV / D_SPACING)
-Vector2 base_ray_array[FOV / D_SPACING];
-Vector2 ray_array[FOV / D_SPACING];
+Vector2 base_ray_array[NUM_OF_RAYS];
+Vector2 ray_array[NUM_OF_RAYS];
 
 typedef struct {
   Vector2 start_vec;
@@ -25,7 +25,7 @@ typedef struct {
 boundary_vec boundary_array[NUM_OF_BOUNDARIES];
 
 void init_random_boundaries() {
-  for (int i = 0; i < NUM_OF_BOUNDARIES; i++) {
+  for (int i = 0; i < NUM_OF_BOUNDARIES - 4; i++) {
 
     boundary_array[i].start_vec =
         (Vector2){.x = GetRandomValue(0, SCREEN_WIDTH),
@@ -35,6 +35,22 @@ void init_random_boundaries() {
         (Vector2){.x = GetRandomValue(0, SCREEN_WIDTH),
                   .y = GetRandomValue(0, SCREEN_HEIGHT)};
   }
+  Vector2 top_right = (Vector2){.x = SCREEN_WIDTH, .y = 0};
+  Vector2 top_left = (Vector2){.x = 0, .y = 0};
+  Vector2 bottom_right = (Vector2){.x = SCREEN_WIDTH, .y = SCREEN_HEIGHT};
+  Vector2 bottom_left = (Vector2){.x = 0, .y = SCREEN_HEIGHT};
+
+  boundary_array[NUM_OF_BOUNDARIES - 4].start_vec = top_left;
+  boundary_array[NUM_OF_BOUNDARIES - 4].end_vec = top_right;
+
+  boundary_array[NUM_OF_BOUNDARIES - 3].start_vec = bottom_left;
+  boundary_array[NUM_OF_BOUNDARIES - 3].end_vec = bottom_right;
+
+  boundary_array[NUM_OF_BOUNDARIES - 2].start_vec = top_right;
+  boundary_array[NUM_OF_BOUNDARIES - 2].end_vec = bottom_right;
+
+  boundary_array[NUM_OF_BOUNDARIES - 1].start_vec = top_left;
+  boundary_array[NUM_OF_BOUNDARIES - 1].end_vec = bottom_left;
 }
 void draw_random_boundaries(void) {
   for (int i = 0; i < NUM_OF_BOUNDARIES; i++) {
@@ -109,8 +125,7 @@ void draw_all_rays() {
         closest_point = intersection_point;
       }
     }
-    TraceLog(LOG_INFO, "Drawing line x: %d, Drawing line y: %d\n",
-             closest_point.x, closest_point.y);
-    DrawLineV(player_pos, closest_point, WHITE);
+    Color rayColor = {255, 255, 255, 255};
+    DrawLineEx(player_pos, closest_point, LINE_THICK, WHITE);
   }
 }
